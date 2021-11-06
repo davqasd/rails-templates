@@ -25,13 +25,10 @@ def init
   replace_project_files
 
   run 'bundle install'
-  run 'rubocop -A'
-  run 'rspec'
 
   run 'npx npm-add-script -k dev -v "./bin/webpack --watch --progress"'
   run 'yarn add eslint eslint-plugin-react eslint-config-standard ' \
     'eslint-plugin-promise eslint-plugin-import eslint-plugin-node'
-  run './node_modules/.bin/eslint --fix app/javascript'
 
   replace_default_db
   run 'rails db:create db:migrate'
@@ -40,6 +37,15 @@ end
 init
 
 after_bundle do
+  rails_command 'webpacker:install'
+  rails_command 'webpacker:install:react'
+  rails_command 'generate react:install'
+  rails_command 'generate react:component HelloWorld greeting:string'
+
+  run 'rubocop -A'
+  run 'rspec'
+  run './node_modules/.bin/eslint --fix app/javascript'
+
   git :init
 
   rails_command 'server'
