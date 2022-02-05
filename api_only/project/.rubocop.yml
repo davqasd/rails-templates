@@ -1,0 +1,80 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+
+Metrics/AbcSize:
+  Max: 50
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/routes/*'
+    - 'spec/factories/**/*'
+  IgnoredMethods:
+    - context
+    - describe
+    - feature
+    - namespace
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# Too short methods lead to extraction of single-use methods, which can make
+# the code easier to read (by naming things), but can also clutter the class
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: false
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Rails:
+  Enabled: true
+
+Rails/SkipsModelValidations:
+  AllowedMethods:
+    - update_all
+    - update_column
+    - update_columns
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+
+# don't bother with exception class for
+# ```ruby
+# rescue => e
+# ```
+Style/RescueStandardError:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: true
+
+Style/StructInheritance:
+  Enabled: false
+
+Rails/FilePath:
+  Exclude:
+    - 'config/environments/development.rb'
+
+Layout/LineLength:
+  Exclude:
+    - 'bin/*'
