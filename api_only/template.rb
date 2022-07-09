@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-=begin
-rails new -d postgresql --skip-action-cable --skip-turbolinks --skip-test --api \
-  -m rails_templates/api_only/template.rb app_name
-=end
+# rails new -d postgresql --skip-action-cable --skip-turbolinks --skip-test --api \
+#   -m rails_templates/api_only/template.rb app_name
 
 require 'find'
 
-FILES_PATH = "#{File.dirname(__FILE__)}/project/"
+FILES_PATH = "#{File.dirname(__FILE__)}/project/".freeze
 
 def replace_default_db
   filename = "#{FILES_PATH}/config/database.yml.example"

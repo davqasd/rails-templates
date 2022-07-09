@@ -13,7 +13,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'factory_bot_rails'
 
-Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 require 'database_cleaner/active_record'
 require 'faker'

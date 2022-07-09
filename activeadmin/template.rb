@@ -2,7 +2,7 @@
 
 require 'find'
 
-FILES_PATH = "#{File.dirname(__FILE__)}/project/"
+FILES_PATH = "#{File.dirname(__FILE__)}/project/".freeze
 
 def replace_default_db
   filename = "#{FILES_PATH}/config/database.yml.example"
@@ -28,6 +28,7 @@ def init
 
   replace_default_db
   generate 'active_admin:install', 'User'
+  File.delete('./spec/models/user_spec.rb')
 
   run 'rails db:create db:migrate'
 end
