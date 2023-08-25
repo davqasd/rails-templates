@@ -10,7 +10,6 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running not in test mode!') unless Rails.env.test?
 
 require 'rspec/rails'
-require 'capybara/rails'
 require 'factory_bot_rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
