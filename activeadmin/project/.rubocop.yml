@@ -6,6 +6,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - 'config/initializers/devise.rb'
+    - 'db/schema.rb'
 
 Style/Documentation:
   Enabled: false
@@ -26,7 +27,7 @@ Metrics/BlockLength:
   Exclude:
     - 'config/routes/*'
     - 'spec/factories/**/*'
-  IgnoredMethods:
+  AllowedMethods:
     - context
     - describe
     - feature
